@@ -1,0 +1,25 @@
+{
+  "name": "api-carbon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "node-fetch": "^2.6.1",
+    "pagespeed-insights": "^1.0.2",
+    "psi": "^4.1.0",
+    "request": "^2.81.0",
+    "website-carbon-calculator": "^1.2.7"
+  },
+  "engines": {
+    "node": "16.15.0"
+  }
+}

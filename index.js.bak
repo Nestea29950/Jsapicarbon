@@ -1,0 +1,52 @@
+import express from 'express';
+
+import psi from 'psi';
+import { WebsiteCarbonCalculator, WebsiteCarbonCalculatorError,} from 'website-carbon-calculator';
+
+var app = express();
+import cors from 'cors';
+
+app.use(cors({
+  origin: '*'
+}));
+
+
+app.get('/api', function(req, res) {
+
+    const url = req.query.url;
+    const websiteCarbonCalculator = new WebsiteCarbonCalculator({pagespeedApiKey: 'AIzaSyCXkSBXLSiY0OlTpgAp0u5OvOrCTVCgveg'});
+    
+    async function calculCarbon(){
+      try {
+        const carbon = await websiteCarbonCalculator.calculateByURL(url)
+        const data2 = await psi('https://www.roquette.bzh', {
+      key: 'AIzaSyCXkSBXLSiY0OlTpgAp0u5OvOrCTVCgveg',
+      strategy: 'mobile'
+  });
+        JSON.stringify(carbon);
+        JSON.stringify(data2);
+        console.log('Speed-score:', data2.data.lighthouseResult.categories.performance.score);
+        console.log(carbon);
+    
+        res.send({
+          'carbon': carbon,
+          'performancescore': data2.data.lighthouseResult.categories.performance.score
+        });
+      }
+      catch(error) {
+        
+        res.send({
+          'Erreur' : "Url non valide",        
+        });
+      }
+      
+    }
+    calculCarbon();
+    
+  });
+
+let port = process.env.PORT || 3000;
+
+app.listen(port,()=> {
+  console.log("Exemple app is listening on port http://localhost:${port}oui");
+});
