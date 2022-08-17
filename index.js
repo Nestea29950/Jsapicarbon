@@ -10,6 +10,9 @@ app.use(cors({
   origin: '*'
 }));
 
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
 app.get('/api', function (req, res) {
 
