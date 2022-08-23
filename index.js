@@ -99,7 +99,7 @@ app.get('/api', function (req, res) {
       });
     }
     catch (error) {
-
+      console.log(error);
       res.send({
         'Erreur': "Url non valide",
       });
