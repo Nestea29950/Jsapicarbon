@@ -33,7 +33,7 @@ app.get('/api', function (req, res) {
       //,"categories":"architecture";
       //,"categories":"time";
 
-      var audits = [ {"id":1,"name":"carbon","score":carbon}
+      var audits = [ {"id":1,"name":"carbon","score":carbon.co2PerPageview}
       , {"id":2,"name":"performances","score":data2.data.lighthouseResult.categories.performance.score}
       , {"id":3,"name":"first-contentful-paint-3g","score":data2.data.lighthouseResult.audits['first-contentful-paint-3g'].score,"description":data2.data.lighthouseResult.audits['first-contentful-paint-3g'].description,"categories":"time","value": data2.data.lighthouseResult.audits['first-contentful-paint-3g'].displayValue}
       , {"id":4,"name":"interactive","score":data2.data.lighthouseResult.audits['interactive'].score,"description":data2.data.lighthouseResult.audits['interactive'].description,"categories":"time","value": data2.data.lighthouseResult.audits['interactive'].displayValue}
