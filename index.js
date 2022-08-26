@@ -27,13 +27,13 @@ app.get('/api', function (req, res) {
       JSON.stringify(carbon); 
       JSON.stringify(data2);
       console.log('performancescore:', data2.data.lighthouseResult.audits['first-contentful-paint-3g']);
-
+      console.log(carbon);
       //,"categories":"front";
       //,"categories":"back";
       //,"categories":"architecture";
       //,"categories":"time";
 
-      var audits = [ {"id":1,"name":"carbon","score":carbon.co2PerPageview}
+      var audits = [ {"id":1,"name":"carbon","score":carbon.co2PerPageview,"Green":carbon.isGreenHost}
       , {"id":2,"name":"performances","score":data2.data.lighthouseResult.categories.performance.score}
       , {"id":3,"name":"first-contentful-paint-3g","score":data2.data.lighthouseResult.audits['first-contentful-paint-3g'].score,"description":data2.data.lighthouseResult.audits['first-contentful-paint-3g'].description,"categories":"time","value": data2.data.lighthouseResult.audits['first-contentful-paint-3g'].displayValue}
       , {"id":4,"name":"interactive","score":data2.data.lighthouseResult.audits['interactive'].score,"description":data2.data.lighthouseResult.audits['interactive'].description,"categories":"time","value": data2.data.lighthouseResult.audits['interactive'].displayValue}
