@@ -43,7 +43,6 @@ app.get('/api', function (req, res) {
       , {"id":6,"name":"main-thread-tasks","score":data2.data.lighthouseResult.audits['main-thread-tasks'].score,"description":data2.data.lighthouseResult.audits['main-thread-tasks'].description}
       , {"id":7,"name":"unused-css-rules","score":data2.data.lighthouseResult.audits['unused-css-rules'].score,"description":data2.data.lighthouseResult.audits['unused-css-rules'].description,"categories":"back"}
       , {"id":8,"name":"performances","score":data2.data.lighthouseResult.categories.performance.score}
-      , {"id":9,"name":"urlcarbon","values":url,"couleurs":"green"}
       //, {"id":9,"name":"user-timings","score":data2.data.lighthouseResult.audits['user-timings'].score,"description":data2.data.lighthouseResult.audits['user-timings'].description}
       //, {"id":10,"name":"final-screenshot","score":data2.data.lighthouseResult.audits['final-screenshot'].score,"description":data2.data.lighthouseResult.audits['final-screenshot'].description}
       //, {"id":11,"name":"bootup-time","score":data2.data.lighthouseResult.audits['bootup-time'].score,"description":data2.data.lighthouseResult.audits['bootup-time'].description}
