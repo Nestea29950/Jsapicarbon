@@ -27,7 +27,6 @@ app.get('/api', function (req, res) {
       let audits = [];
       audits.push({ "name": "carbon", "score": carbon.co2PerPageview, "Green": carbon.isGreenHost });
       audits.push({ "name": "greenhost", "score": carbon.isGreenHost });
-      audits.push({ "name": "noteroquette", "score": "pasdenote" });
       audits.push({ "name": "performances", "score": data2.data.lighthouseResult.categories.performance.score });
 
       for (let i in data2.data.lighthouseResult.audits) {
