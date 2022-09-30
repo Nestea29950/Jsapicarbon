@@ -27,12 +27,16 @@ app.get('/api', function (req, res) {
       let audits = [];
       audits.push({ "name": "carbon", "score": carbon.co2PerPageview, "Green": carbon.isGreenHost });
       audits.push({ "name": "greenhost", "score": carbon.isGreenHost });
-      
       audits.push({ "name": "performances", "score": data2.data.lighthouseResult.categories.performance.score });
-
+      
       for (let i in data2.data.lighthouseResult.audits) {
-        audits.push({ "name": data2.data.lighthouseResult.audits[i].id, "score": data2.data.lighthouseResult.audits[i].score, "value": data2.data.lighthouseResult.audits[i].displayValue });
+        audits.push({ "name": data2.data.lighthouseResult.audits[i].id, "score": data2.data.lighthouseResult.audits[i].score, "value": data2.data.lighthouseResult.audits[i].displayValue});
       };
+      let a = 0;
+      while(a < data2.data.lighthouseResult.audits['resource-summary'].details.items.length){
+        audits.push({"name": data2.data.lighthouseResult.audits['resource-summary'].details.items[a]["label"],"score":null,"value":data2.data.lighthouseResult.audits['resource-summary'].details.items[a]["requestCount"]})
+        a++;
+      }
       console.log("Résultat envoyé !");
       res.send({
         audits,
@@ -53,5 +57,5 @@ app.get('/api', function (req, res) {
 let port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-  console.log("Lancement de l'api !");
+  console.log("Exemple app is listening on port http://localhost:${port}oui");
 });
