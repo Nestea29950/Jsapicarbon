@@ -43,8 +43,8 @@ app.get('/api', function (req, res) {
       });
     }
     // Récupere l'erreur et renvoie Url non valide !
-    catch (error) {
-      console.log(error);
+    catch (WebsiteCarbonCalculatorError) {
+      console.log(WebsiteCarbonCalculatorError);
       
       res.send({
         'Erreur': "Url non valide",
